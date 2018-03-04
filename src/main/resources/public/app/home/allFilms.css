@@ -1,0 +1,13 @@
+.searchBar {
+    z-index: 2 ;
+    position: absolute;
+    top: 67px;
+    /*left: 20%;
+    width: 60%;*/
+}
+.filmsList{
+    margin-top:26px;
+}
+body {
+    background-color: #343a40;
+}

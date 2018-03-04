@@ -1,0 +1,45 @@
+li{
+    cursor:pointer;
+}
+li:hover
+{
+    background-color:#f9f9f9;
+}
+a {
+    color: #E1704B;
+    transition: color 0.5s ease;
+}
+a:hover{
+    cursor:pointer;
+}
+h1{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2.5em;
+    font-weight: 500;
+}
+
+.filter{
+    margin-top: 6px;
+}
+.strike{
+    text-decoration:line-through;
+}
+.header-elements-margin {
+    margin: 5px;
+}
+.add-task{
+    margin-top: 10px;
+}
+.nav-button-margin{
+    margin: 10px 20px 0 0;
+}
+.navbar{
+    border-radius: 0;
+    background: #438EB9;
+    color: #fff;
+}
+.navbar .navbar-brand {
+    color: #FFF;
+    font-size: 24px;
+    text-shadow: none;
+}

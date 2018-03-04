@@ -1,0 +1,24 @@
+<style type="text/css"> @import url("app/user/account.css"); </style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <ng-include src="'app/home/filmsList.html'"></ng-include>
+            <ng-include src="'app/film-description-popup/filmDescriptionPopup.html'"></ng-include>
+    </div>
+        <div class="col-md-4">
+            <div class="card bg-dark text-white border-white" >
+                <div class="card-header">USER DATA</div>
+                <div class="card-body">
+                    <h4 class="card-title">Login{{myUser.username}}</h4>
+                    <p class="card-text">Password encrypted:</p><p> {{myUser.password}}</p>
+                    <p class="card-text">Current token:</p><p> {{user.token}}</p>
+                    <p class="card-text">Name:{{myUser.username}}</p>
+                    <p class="card-text">You role:{{myUser.authorities[0].authority}} {{myUser.authorities[1].authority}}</p>
+                    <p class="card-text">User id:{{myUser.id}}</p>
+                    <p class="card-text">Account non expired:{{myUser.accountNonExpired}}</p>
+                    <p class="card-text">Account non locked:{{myUser.accountNonLocked}}</p>
+                </div>
+        </div>
+    </div>
+</div>
+</div>

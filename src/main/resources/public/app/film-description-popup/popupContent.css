@@ -1,0 +1,23 @@
+.wrapper {
+    column-count: 2;
+    column-gap: 50px;
+    padding: 50px;
+}
+
+p {
+    line-height: 1.6;
+    font-family: Helvetica;
+    text-align: justify;
+    margin: 0;
+    font-size: 14px;
+}
+
+.star {
+    float: left;
+    min-width: 15rem;
+    max-width: 20rem;
+    /*shape-outside: url(https://upload.wikimedia.org/wikipedia/commons/3/34/Red_star.svg);*/
+    shape-margin:20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,23 @@
+<style type="text/css"> @import url("app/navbar/navbar.css"); </style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Weiss</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" ng-click="getBackHome()" href="#home"  >Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" ng-show="myUser.id!=undefined" ng-click="updateLikeList()" href="#account">Account</a>
+            </li>
+            <li class="nav-item" ng-controller="loginCtrl">
+                <a id="registerLink" class="nav-link" ng-click="getLoginForm(true)">Login</a>
+            </li>
+        </ul>
+    </div>
+    <span class="navbar-text">
+      {{myUser.username}}
+    </span>
+</nav>
