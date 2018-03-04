@@ -17,6 +17,7 @@ mvnw.cmd
 *.iws
 *.iml
 *.ipr
+src/main/resources/public/common
 
 ### NetBeans ###
 nbproject/private/
