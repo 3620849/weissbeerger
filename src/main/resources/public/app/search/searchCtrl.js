@@ -6,7 +6,7 @@ app.controller("searchCtrl", function($scope,$http,$rootScope){
         $scope.getLocation($item);
     };
     $scope.getLocation = function(val) {
-        return $http.get('//localhost:8080/api/searchFilms', {
+        return $http.get('/api/searchFilms', {
             params: {
                 name: val
             }
