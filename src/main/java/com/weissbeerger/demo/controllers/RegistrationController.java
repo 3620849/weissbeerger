@@ -18,36 +18,15 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.NoSuchElementException;
 
 
 @RestController
 public class RegistrationController {
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
     @Autowired
-    private UserDao userDao;
-    @Autowired
-    private TokenHandler tokenHandler;
-    @Autowired
     UserService userService;
 
-    @RequestMapping(value = "/getToken",
-            method = RequestMethod.POST,
-            consumes = MediaType.APPLICATION_JSON_VALUE,
-            produces = MediaType.TEXT_PLAIN_VALUE)
-        public String getAuthToken(@RequestBody User loginUser){
-        LOGGER.debug("/getToken : method getAuthToken user: "+ loginUser.getUsername());
-        if(loginUser.getUsername()==null && loginUser.getPassword()==null) {return "-1";}
-        User savedUser;
-        try {
-            savedUser = userService.findUserByName(loginUser).get();
-            if(tokenHandler.checkMatchesPasswords(savedUser,loginUser)){
-                return tokenHandler.generateTokenId(savedUser.getId() , LocalDateTime.now().plusHours(1));
-            };
-        } catch (NullPointerException e){
-            return "-1";
-        }
-        return "-1";
-    }
     @RequestMapping(value = "/getCurrentUser", method = RequestMethod.GET)
     public ResponseEntity<User> getCurrentUser(){
         LOGGER.debug("/getCurrentUser : method getCurrentUser ");

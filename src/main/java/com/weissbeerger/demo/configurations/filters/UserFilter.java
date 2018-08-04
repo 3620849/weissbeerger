@@ -1,6 +1,8 @@
-package com.weissbeerger.demo.configurations;
+package com.weissbeerger.demo.configurations.filters;
 
+import com.weissbeerger.demo.model.User;
 import com.weissbeerger.demo.services.TokenAuthService;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.GenericFilterBean;
 
@@ -15,19 +17,17 @@ import java.io.IOException;
  * filter wich intercapts all request and change credentials
  */
 
-public class AdminFilter extends GenericFilterBean {
+public class UserFilter extends GenericFilterBean {
     private final TokenAuthService tokenAuthService;
 
-    public AdminFilter(TokenAuthService tokenAuthService) {
+    public UserFilter(TokenAuthService tokenAuthService) {
         this.tokenAuthService = tokenAuthService;
     }
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-
-        SecurityContextHolder.getContext().setAuthentication(
-                tokenAuthService.getAuthentication((HttpServletRequest)servletRequest).orElse(null)
-        );
+        Authentication authentication = tokenAuthService.getAuthentication((HttpServletRequest) servletRequest).orElse(null);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
         filterChain.doFilter(servletRequest,servletResponse);
     }
 }

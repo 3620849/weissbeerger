@@ -8,10 +8,19 @@ import org.springframework.security.core.GrantedAuthority;
 import java.util.Collection;
 
 public class UserAuthentication implements Authentication {
-    public final User user;
-    public boolean auth = true;
+    private final User user;
+    private boolean auth = true;
+    private String accessToken;
     public UserAuthentication(@NonNull User user) {
         this.user = user;
+    }
+
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
     }
 
     @Override

@@ -37,12 +37,12 @@ public class RegistrationControllerTest {
     public ExpectedException thrown = ExpectedException.none();
 
 
-    @Test
+   /* @Test
     public void testGetAuthToken1() throws Exception {
         thrown.expect(NullPointerException.class);
         registrationController.getAuthToken(null);
-    }
-    @Test
+    }*/
+   /* @Test
     public void testGetAuthToken2() throws Exception {
         //if 2users are same return some token
         User user123 = new User();
@@ -53,7 +53,7 @@ public class RegistrationControllerTest {
         when(tokenHandler.generateTokenId(anyInt(),anyObject())).thenReturn("someToken");
         String res = registrationController.getAuthToken(user123);
         assertEquals("someToken",res);
-    }
+    }*/
 
     @Test
     public void testRegister() throws Exception {

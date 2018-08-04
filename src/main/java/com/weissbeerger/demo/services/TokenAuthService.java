@@ -18,10 +18,10 @@ public class TokenAuthService {
 
     public final String AUTH_TOKEN="X-Auth-Token";
     public Optional<Authentication> getAuthentication(@NonNull HttpServletRequest servletRequest) {
-
-        return Optional.ofNullable(servletRequest.getHeader(AUTH_TOKEN) )
+        Optional<Authentication> userAuthentication = Optional.ofNullable(servletRequest.getHeader(AUTH_TOKEN))
                 .flatMap(tokenHandler::extractUserId)
                 .flatMap(userService::findById)
                 .map(UserAuthentication::new);
+        return userAuthentication;
     }
 }
