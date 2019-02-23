@@ -12,12 +12,17 @@
             <li class="nav-item">
                 <a class="nav-link" ng-show="myUser.id!=undefined" ng-click="updateLikeList()" href="#account">Account</a>
             </li>
-            <li class="nav-item" ng-controller="loginCtrl">
-                <a id="registerLink" class="nav-link" ng-click="getLoginForm(true)">Login</a>
+            <li class="nav-item">
+                <a id="registerLink" class="nav-link" data-toggle="modal" data-target="#loginModal">Login</a>
             </li>
+            <!--<li class="nav-item" ng-controller="loginCtrl">
+                <a id="registerLink" class="nav-link" ng-click="getLoginForm(true)">Login</a>
+            </li>-->
         </ul>
     </div>
-    <span class="navbar-text">
+    <span class="navbar-text" ng-show="myUser.username">
+        <button class="btn btn-outline-light" disabled>
       {{myUser.username}}
+        </button>
     </span>
 </nav>

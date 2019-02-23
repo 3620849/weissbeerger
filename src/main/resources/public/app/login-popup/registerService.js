@@ -16,6 +16,7 @@ angular.module('mainApp').factory('registerService',function($http,$rootScope){
         register: function (user) {
             $http.post("/register", user)
                 .then(function (data, status, headers, config) {
+                    $rootScope.$broadcast('userRegister:saved',user);
                 }, function (error) {
                     console.log(error.data)
                 })

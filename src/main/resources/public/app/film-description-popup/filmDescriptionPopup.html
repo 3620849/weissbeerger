@@ -1,6 +1,7 @@
 <style type="text/css"> @import url("app/film-description-popup/popupContent.css"); </style>
 <!-- Modal -->
-<div ng-controller="descriptionCtrl" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div ng-controller="descriptionCtrl" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -12,70 +13,48 @@
             </div>
             <div class="modal-body" ng-show="loadingDesc">LOADING...</div>
             <div class="modal-body" ng-hide="loadingDesc">
-                <div ng-show="myUser.id!=undefined" >
-                <img  ng-show="likeStatus" style="position: absolute;width:40px;
+                <div ng-show="myUser.id!=undefined">
+                    <img ng-show="likeStatus" style="position: absolute;width:40px;
                 height: 40px;" src="app/film-description-popup/like.png"
-                     ng-click="likeFilm(pickedFilm)">
-                </img>
-                <img ng-hide="likeStatus" style="position: absolute;width:40px;
+                         ng-click="likeFilm(pickedFilm)">
+                    </img>
+                    <img ng-hide="likeStatus" style="position: absolute;width:40px;
                 height: 40px;" src="app/film-description-popup/noLike.png"
-                     ng-click="likeFilm(pickedFilm)">
-                </img>
+                         ng-click="likeFilm(pickedFilm)">
+                    </img>
                 </div>
                 <div class="wrapper">
-                        <img src="{{filmDescription.film.Poster}}" style="min-width: 15rem;max-width: 20rem;" onerror="this.style.display = 'none'" class="star">
-                        <p>SOURCE OMDB: {{filmDescription.sorceOmdb}} </p>
+                    <img src="{{filmDescription.film.Poster}}" style="min-width: 15rem;max-width: 20rem;"
+                         onerror="this.style.display = 'none'" class="star">
+                    <p>SOURCE OMDB: {{filmDescription.sorceOmdb}} </p>
 
-                        <p>Year: {{filmDescription.film.Year}}</p>
-                        <p>Rated: {{filmDescription.film.Rated}}</p>
-                        <p>Released: {{filmDescription.film.Released}}</p>
-                        <p>Runtime: {{filmDescription.film.Runtime}} </p>
-                        <p>Genre:  {{filmDescription.film.Genre}} </p>
-                        <p>Director:  {{filmDescription.film.Director}} </p>
-                        <p>Writer:  {{filmDescription.film.Writer}} </p>
-                        <p>Actors:  {{filmDescription.film.Actors}} </p>
-                        <p>Plot:  {{filmDescription.film.Plot}} </p>
-                        <p>Language:  {{filmDescription.film.Language}} </p>
-                        <p>Country:  {{filmDescription.film.Country}} </p>
-                        <p>Awards:  {{filmDescription.film.Awards}} </p>
-                        <p>Metascore:  {{filmDescription.film.Metascore}} </p>
-                        <p>imdbVotes:  {{filmDescription.film.imdbVotes}} </p>
-                        <p>Dvd:  {{filmDescription.film.DVD}} </p>
-                        <p>BoxOffice:  {{filmDescription.film.BoxOffice}} </p>
-                        <p>Production:  {{filmDescription.film.Production}} </p>
-                        <p>Website:  {{filmDescription.film.Website}} </p>
+                    <p>Year: {{filmDescription.film.Year}}</p>
+                    <p>Rated: {{filmDescription.film.Rated}}</p>
+                    <p>Released: {{filmDescription.film.Released}}</p>
+                    <p>Runtime: {{filmDescription.film.Runtime}} </p>
+                    <p>Genre: {{filmDescription.film.Genre}} </p>
+                    <p>Director: {{filmDescription.film.Director}} </p>
+                    <p>Writer: {{filmDescription.film.Writer}} </p>
+                    <p>Actors: {{filmDescription.film.Actors}} </p>
+                    <p>Plot: {{filmDescription.film.Plot}} </p>
+                    <p>Language: {{filmDescription.film.Language}} </p>
+                    <p>Country: {{filmDescription.film.Country}} </p>
+                    <p>Awards: {{filmDescription.film.Awards}} </p>
+                    <p>Metascore: {{filmDescription.film.Metascore}} </p>
+                    <p>imdbVotes: {{filmDescription.film.imdbVotes}} </p>
+                    <p>Dvd: {{filmDescription.film.DVD}} </p>
+                    <p>BoxOffice: {{filmDescription.film.BoxOffice}} </p>
+                    <p>Production: {{filmDescription.film.Production}} </p>
+                    <p>Website: {{filmDescription.film.Website}} </p>
 
                     <span>Rating ({{filmDescription.film.imdbRating}}):
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: {{filmDescription.film.imdbRating*10}}%"
+                                <div class="progress-bar progress-bar-striped bg-info" role="progressbar"
+                                     style="width: {{filmDescription.film.imdbRating*10}}%"
                                      aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
                                 </div>
                             </div>
                         </span>
-                    <!--</div>
-
-
-                        <div class="col-md-auto">
-                            <img src="app/film-description-popup/myimg.jpg" class="rounded float-left" alt="..." onerror="this.style.display = 'none'";>
-                        </div>
-
-                    <div class="col ">
-
-                        <h2>Year "1988"</h2>
-                        <p>Rated "R"</p>
-                        <p>Released "21 Oct 1988"</p>
-                        <p>Runtime "105 min"</p>
-                        <p>Genre "Drama, War"</p>
-                        <p>Seth Grahame-Smith (screenplay by), Chris McKenna (screenplay by), Erik Sommers (screenplay by), Jared Stern (screenplay by), John Whittington (screenplay by), Seth Grahame-Smith (story by), Bob Kane (Batman created by), Bill Finger (Batman created by), Jerry Siegel (Superman created by), Joe Shuster (Superman created by), William Moulton Marston (Wonder Woman created by), Ole Kirk Christiansen (based on LEGO Construction Toys created by), Godtfred Kirk Christiansen (based on LEGO Construction Toys created by), Jens Nygaard Knudsen (based on LEGO Construction Toys created by)</p>
-                        <p>Seth Grahame-Smith (screenplay by), Chris McKenna (screenplay by), Erik Sommers (screenplay by), Jared Stern (screenplay by), John Whittington (screenplay by), Seth Grahame-Smith (story by), Bob Kane (Batman created by), Bill Finger (Batman created by), Jerry Siegel (Superman created by), Joe Shuster (Superman created by), William Moulton Marston (Wonder Woman created by), Ole Kirk Christiansen (based on LEGO Construction Toys created by), Godtfred Kirk Christiansen (based on LEGO Construction Toys created by), Jens Nygaard Knudsen (based on LEGO Construction Toys created by)</p>
-                        <span>Rating:
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 30%"
-                                  aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-                                </div>
-                             </div>
-                        </span>
-                    </div>-->
                 </div>
             </div>
         </div>

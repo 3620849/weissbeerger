@@ -1,4 +1,4 @@
-angular.module("mainApp").controller("loginCtrl",function($scope,registerService){
+angular.module("mainApp").controller("loginCtrl",function($scope,registerService,$rootScope){
     $scope.currentForm="app/login-popup/loginForm.html";
     $scope.registerForm={};
     $scope.registerForm.name="Login";
@@ -7,24 +7,14 @@ angular.module("mainApp").controller("loginCtrl",function($scope,registerService
 
     $scope.loginUser = function(op){
         registerService.login(op);
-        $scope.openCloseRegform(true);
+        $('#loginModal').modal('hide');
     }
     $scope.registerUser = function(user){
         registerService.register(user);
         $scope.user = registerService.user;
-        $scope.getLoginForm(false);}
-
-
-    $scope.getLoginForm = function(op){
-            $scope.showLoginForm=true;
-            $scope.showRegisterForm=false;
-            $scope.registerForm.name="Login";
-            $scope.openCloseRegform(op);
+        $('#registerModal').modal('hide');
     }
-
-    $scope.getRegisterForm = function(){
-        $scope.showLoginForm=false;
-        $scope.showRegisterForm=true;
-        $scope.registerForm.name="Sign up";
-    }
+    $rootScope.$on('userRegister:saved',function(event,user){
+        $scope.loginUser(user)
+    });
 })
