@@ -1,12 +1,12 @@
 package com.weissbeerger.demo.services;
 
 import com.weissbeerger.demo.configurations.UserAuthentication;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
 @Component

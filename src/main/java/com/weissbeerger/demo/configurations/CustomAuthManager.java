@@ -11,11 +11,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
-import java.util.function.Supplier;
-
-/**
- * Created by l9mon on 8/3/2018.
- */
 @Component
 public class CustomAuthManager implements AuthenticationManager {
     @Autowired

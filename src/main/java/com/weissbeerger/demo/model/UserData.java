@@ -3,7 +3,7 @@ package com.weissbeerger.demo.model;
 import com.weissbeerger.demo.model.omdb.Search;
 import lombok.Data;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.List;
 
 @Data

@@ -48,7 +48,8 @@ public class UserDataController {
     @RequestMapping(value = "/getUserData/{id}", method = RequestMethod.GET)
     public UserData getUserData (@PathVariable("id") int id){
         LOGGER.debug("URL /getUserData/{id} method:getUserData attribute id is: "+id);
-        return userDataService.getUserDataById(id);
+        UserData userDataById = userDataService.getUserDataById(id);
+        return userDataById;
     }
     @PreAuthorize("hasRole('ROLE_ADMIN') or principal.id == #id")
     @RequestMapping(value = "/getLikedList/{id}", method = RequestMethod.GET)

@@ -1,11 +1,10 @@
 package com.weissbeerger.demo.dao;
 
 import com.weissbeerger.demo.model.UserData;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 
 @Repository

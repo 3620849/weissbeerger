@@ -2,12 +2,10 @@ package com.weissbeerger.demo.model;
 
 
 import com.weissbeerger.demo.model.omdb.FilmDto;
-import lombok.Data;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import javax.persistence.*;
 
 @Getter
 @Setter
