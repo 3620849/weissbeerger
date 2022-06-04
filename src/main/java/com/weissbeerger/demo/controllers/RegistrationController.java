@@ -34,12 +34,15 @@ public class RegistrationController {
         User user = null;
         try{
             user = (User) authentication.getPrincipal();
-        }catch (ClassCastException e){
-            if (authentication.getPrincipal()=="anonymousUser"){
+            if(user.getUsername()==null ||  user.getId()==0){
+                throw new Exception("anonymousUser");
+            }
+            user =  userService.findById(user.getId()).get();
+            user.setPassword(null);
+        }catch (Exception e){
                 user=new User();
                 user.setUsername("anonymousUser");
                 user.grantRole(Role.ROLE_ANONYMOUS);
-            }
         }
         return new ResponseEntity<>(user, HttpStatus.OK);
     }

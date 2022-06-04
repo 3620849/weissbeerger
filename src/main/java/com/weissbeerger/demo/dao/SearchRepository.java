@@ -2,12 +2,11 @@ package com.weissbeerger.demo.dao;
 
 import com.weissbeerger.demo.model.UserData;
 import com.weissbeerger.demo.model.omdb.Search;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
+import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository

@@ -1,16 +1,22 @@
 package com.weissbeerger.demo.configurations;
 
 import com.weissbeerger.demo.model.User;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Collection;
 
+@Data
+@NoArgsConstructor
 public class UserAuthentication implements Authentication {
-    private final User user;
+    private User user;
     private boolean auth = true;
     private String accessToken;
+    private String clientId;
+
     public UserAuthentication(@NonNull User user) {
         this.user = user;
     }
