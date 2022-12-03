@@ -3,8 +3,6 @@ package com.weissbeerger.demo.controllers;
 import com.weissbeerger.demo.dao.SearchRepository;
 import com.weissbeerger.demo.dao.UserDao;
 import com.weissbeerger.demo.dao.UserDataDao;
-import com.weissbeerger.demo.model.Film;
-import com.weissbeerger.demo.model.Role;
 import com.weissbeerger.demo.model.User;
 import com.weissbeerger.demo.model.UserData;
 import com.weissbeerger.demo.model.omdb.Search;

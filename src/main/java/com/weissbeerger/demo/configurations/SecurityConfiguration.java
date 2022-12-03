@@ -15,6 +15,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.util.matcher.OrRequestMatcher;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -43,14 +44,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
-                .authorizeRequests()
-                .anyRequest().authenticated()
+                .authorizeRequests().antMatchers("/api/**","/getCurrentUser","/register").authenticated()
+                .anyRequest().permitAll()
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().addFilterBefore(getLoginFilter(), UsernamePasswordAuthenticationFilter.class);
     }
     public LoginFilter getLoginFilter() throws Exception {
-        LoginFilter loginFilter = new LoginFilter(new AntPathRequestMatcher("/**"));
+        LoginFilter loginFilter = new LoginFilter(new OrRequestMatcher(
+                new AntPathRequestMatcher("/api/**"),
+                new AntPathRequestMatcher("/getCurrentUser"),
+                new AntPathRequestMatcher("/register")));
         loginFilter.setAuthenticationManager(this.authenticationManager());
         return loginFilter;
     }
